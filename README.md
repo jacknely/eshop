@@ -72,5 +72,5 @@ pytest tests
 ```
 If running tests inside dockerised container then, when container is running, execute the below code:
 ```
-docker exec -it eshop_eshop_1 py.test  
+docker exec -it eshop-suade_eshop_1 py.test  
 ```
