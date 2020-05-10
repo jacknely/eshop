@@ -1,14 +1,18 @@
+![Python application](https://github.com/jacknely/eshop/workflows/Python%20application/badge.svg)
+![Python package](https://github.com/jacknely/eshop/workflows/Python%20package/badge.svg)
+![Docker Image CI](https://github.com/jacknely/eshop/workflows/Docker%20Image%20CI/badge.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 # eShop Endpoint
 Flask application that creates an endpoint for shop metrics on a given date. 
 
 ## Requirements
-- Python 3.6.5 to 3.8.1
+- Python 3.6, 3.7 & 3.8
 - Docker
 - Flask
 - Flask-RESTful
 - Pandas
 - Pathlib
-- Pytest
 
 
 All requirements are installed from requirements.txt during docker container build.

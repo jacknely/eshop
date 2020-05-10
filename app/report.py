@@ -99,7 +99,8 @@ class DailyShopSummary:
         Returns the total commission per promotion
 
         Returns:
-            total_commission_per_promotion : an int of total commission per promotion
+            total_commission_per_promotion :
+            an int of total commission per promotion
         """
         self.add_commission()
         promotion_data_promo = self.promotion_data[
