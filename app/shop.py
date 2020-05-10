@@ -28,7 +28,8 @@ class Orders:
         Returns a data-frame of imported orders for a given day.
 
     commission():
-        Returns a data-frame of imported orders combined with commissions for a given day.
+        Returns a data-frame of imported orders
+        combined with commissions for a given day.
 
     product_promotion():
         Returns a data-frame of imported orders combined with
@@ -67,14 +68,17 @@ class Orders:
 
     def add_commission(self) -> pd.DataFrame:
         """
-        Returns a data-frame of imported orders combined with commissions for a given day.
+        Returns a data-frame of imported orders
+        combined with commissions for a given day.
 
         Returns:
             merged_commission_data: a pandas data-frame of orders + commissions
         """
         commission_file = pathlib.Path.joinpath(self.root, "commissions.csv")
         commission_data = pd.read_csv(commission_file)
-        commission_data_by_date = commission_data[commission_data["date"] == self.date]
+        commission_data_by_date = commission_data[
+            commission_data["date"] == self.date
+        ]
         merged_commission_data = self.add_order().merge(
             commission_data_by_date,
             left_on="vendor_id",
@@ -89,7 +93,8 @@ class Orders:
         commissions and promotions for a given day.
 
         Returns:
-            merged_commission_data: a pandas data-frame of orders + commissions + promotions
+            merged_commission_data: a pandas
+            data-frame of orders + commissions + promotions
         """
         product_promotion_file = pathlib.Path.joinpath(
             self.root, "product_promotions.csv"
@@ -97,7 +102,10 @@ class Orders:
         promo_data = pd.read_csv(product_promotion_file)
         promo_data_by_date = promo_data[promo_data["date"] == self.date]
         merged_product_promo_data_by_date = self.add_commission().merge(
-            promo_data_by_date, left_on="product_id", right_on="product_id", how="left"
+            promo_data_by_date,
+            left_on="product_id",
+            right_on="product_id",
+            how="left",
         )
         return merged_product_promo_data_by_date
 
@@ -111,7 +119,8 @@ class Orders:
             datetime.datetime(int(year), int(month), int(day))
         except ValueError:
             raise ValueError(
-                f"'{date}' is not a valid date. Ensure you have entered date in YYYY-MM-DD format"
+                f"'{date}' is not a valid date. "
+                f"Ensure you have entered date in YYYY-MM-DD format"
             )
 
     def validate_order_results(self, order: pd.DataFrame) -> None:
